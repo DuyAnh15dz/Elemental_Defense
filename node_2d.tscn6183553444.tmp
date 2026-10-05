@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://kakaom8jxsy7"]
+
+[ext_resource type="PackedScene" uid="uid://b7l80uiak1xxr" path="res://Oxy.tscn" id="1_wtcfe"]
+[ext_resource type="PackedScene" uid="uid://bl0ffq5fr1uqs" path="res://Hydro.tscn" id="2_4d7sh"]
+[ext_resource type="PackedScene" uid="uid://bll0a02n1e0is" path="res://Coal.tscn" id="3_ir8iy"]
+[ext_resource type="PackedScene" uid="uid://cauw851co85ya" path="res://Sodium.tscn" id="4_hqns4"]
+[ext_resource type="Script" uid="uid://cchrhlx5jstr6" path="res://oxy_bullet.gd" id="5_x0ka3"]
+[ext_resource type="Texture2D" uid="uid://b88suxcupclwa" path="res://elemental/oxy-bullet-1.png" id="6_0h7mo"]
+[ext_resource type="Texture2D" uid="uid://bx7qw8i71ycoo" path="res://elemental/oxy-bullet-2.png" id="7_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://y8p6oqjvaprx" path="res://elemental/oxy-bullet-3.png" id="8_d2bti"]
+[ext_resource type="Texture2D" uid="uid://dia7ccphumjh4" path="res://elemental/oxy-bullet-splash.png" id="9_ta5nu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_flf07"]
+radius = 0.05
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-4, 3)
+
+[node name="Plants" type="Node2D" parent="."]
+
+[node name="Oxygen" parent="Plants" instance=ExtResource("1_wtcfe")]
+position = Vector2(79, 44)
+
+[node name="Hydro" parent="Plants" instance=ExtResource("2_4d7sh")]
+position = Vector2(80, 152)
+
+[node name="Cacbon" parent="Plants" instance=ExtResource("3_ir8iy")]
+position = Vector2(82, 258)
+
+[node name="Sodium" parent="Plants" instance=ExtResource("4_hqns4")]
+position = Vector2(228, 43)
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="Oxy_bullet" type="Area2D" parent="Bullets"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("5_x0ka3")
+speed = null
+direction = null
+damage = null
+life_time = null
+frame_duration = null
+bounce_frames = Array[Texture2D]([ExtResource("6_0h7mo"), ExtResource("7_nr8wp"), ExtResource("8_d2bti")])
+pop_frame = ExtResource("9_ta5nu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bullets/Oxy_bullet"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullets/Oxy_bullet"]
+shape = SubResource("CircleShape2D_flf07")

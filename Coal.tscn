@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bll0a02n1e0is"]
+
+[ext_resource type="Texture2D" uid="uid://dubokgneaxeif" path="res://elemental/coal.png" id="2_is4lr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yk1m6"]
+radius = 40.0
+
+[node name="Cacbon" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, -3)
+scale = Vector2(0.085327, 0.0878502)
+texture = ExtResource("2_is4lr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yk1m6")

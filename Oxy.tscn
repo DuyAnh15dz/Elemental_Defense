@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7l80uiak1xxr"]
+
+[ext_resource type="Script" uid="uid://cdksr83xoai2k" path="res://oxygen.gd" id="1_rsxbt"]
+[ext_resource type="Texture2D" uid="uid://bt7iej52ve1f2" path="res://elemental/Oxygen.png" id="2_e7ilr"]
+[ext_resource type="PackedScene" uid="uid://cjy1ngng2owh2" path="res://oxy_bullet.tscn" id="2_yk1m6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yk1m6"]
+radius = 38.2099
+
+[node name="Oxygen" type="Node2D"]
+script = ExtResource("1_rsxbt")
+bullet_scene = ExtResource("2_yk1m6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -2.00003)
+scale = Vector2(0.305688, 0.327172)
+texture = ExtResource("2_e7ilr")
+
+[node name="HitArea" type="Area2D" parent="."]
+position = Vector2(1, 1)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(-3, -3)
+shape = SubResource("CircleShape2D_yk1m6")
+
+[node name="EnemyDetector" type="RayCast2D" parent="."]
+position = Vector2(-4, 1)
+target_position = Vector2(800, 0)
+collision_mask = 2

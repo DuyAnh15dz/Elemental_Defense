@@ -1,0 +1,167 @@
+[gd_scene load_steps=27 format=3 uid="uid://kakaom8jxsy7"]
+
+[ext_resource type="PackedScene" uid="uid://b7l80uiak1xxr" path="res://Oxy.tscn" id="1_wtcfe"]
+[ext_resource type="PackedScene" uid="uid://bl0ffq5fr1uqs" path="res://Hydro.tscn" id="2_4d7sh"]
+[ext_resource type="PackedScene" uid="uid://bll0a02n1e0is" path="res://Coal.tscn" id="3_ir8iy"]
+[ext_resource type="PackedScene" uid="uid://cauw851co85ya" path="res://Sodium.tscn" id="4_hqns4"]
+[ext_resource type="PackedScene" uid="uid://cjy1ngng2owh2" path="res://oxy_bullet.tscn" id="5_kdubu"]
+[ext_resource type="Script" uid="uid://cvpg7ve2mok4l" path="res://enemy.gd" id="7_d21ai"]
+[ext_resource type="Texture2D" uid="uid://dl4ut1s48fu23" path="res://elemental/slime_attack_1.png" id="8_fs4d3"]
+[ext_resource type="Texture2D" uid="uid://bbxa02late8t" path="res://elemental/slime_attack_2.png" id="9_7vxoj"]
+[ext_resource type="Texture2D" uid="uid://dxqhm815nispg" path="res://elemental/slime_attack_3.png" id="10_ei405"]
+[ext_resource type="Script" uid="uid://coiasbcf1ljj5" path="res://plant_base_stat.gd" id="10_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://d112e4rlkmv2x" path="res://elemental/slime_attack_4.png" id="11_e8dv2"]
+[ext_resource type="Texture2D" uid="uid://crkjog0mjliaq" path="res://elemental/slime_attack_5.png" id="12_2nhjh"]
+[ext_resource type="Texture2D" uid="uid://dl6a4wogvkkgs" path="res://elemental/slime_death_1.png" id="13_bjha6"]
+[ext_resource type="Texture2D" uid="uid://crf3qgsbu75a2" path="res://elemental/slime_death_2.png" id="14_gt76g"]
+[ext_resource type="Texture2D" uid="uid://ooujp4kv3dgf" path="res://elemental/slime_death_3.png" id="15_1fr6y"]
+[ext_resource type="Texture2D" uid="uid://ornngtviobd8" path="res://elemental/slime_death_4.png" id="16_2hxjc"]
+[ext_resource type="Texture2D" uid="uid://dy8e4psirqbjy" path="res://elemental/slime_death_5.png" id="17_ebxd8"]
+[ext_resource type="Texture2D" uid="uid://br81hu1cgc8fq" path="res://elemental/slime_mobi_1.png" id="18_2u7jv"]
+[ext_resource type="Texture2D" uid="uid://bvfhrqylavyaq" path="res://elemental/slime_mobi_2.png" id="19_24dk6"]
+[ext_resource type="PackedScene" uid="uid://byd5n3h4h1ykd" path="res://UI/hud.tscn" id="20_fs4d3"]
+[ext_resource type="PackedScene" uid="uid://bha4b6fc4uklx" path="res://energy_orb.tscn" id="21_7vxoj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rjqkl"]
+radius = 5.38516
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kq1c5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_fs4d3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7vxoj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ei405")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_e8dv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2nhjh")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_bjha6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_gt76g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_1fr6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2hxjc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ebxd8")
+}],
+"loop": false,
+"name": &"death",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fs4d3"]
+radius = 33.1361
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vxoj"]
+size = Vector2(47, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjqkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_2u7jv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_24dk6")
+}],
+"loop": true,
+"name": &"move",
+"speed": 2.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Plants" type="Node2D" parent="."]
+
+[node name="Oxygen" parent="Plants" instance=ExtResource("1_wtcfe")]
+position = Vector2(223, 202)
+
+[node name="Hydro" parent="Plants" instance=ExtResource("2_4d7sh")]
+position = Vector2(80, 152)
+
+[node name="Cacbon" parent="Plants" instance=ExtResource("3_ir8iy")]
+position = Vector2(82, 258)
+collision_mask = 2
+
+[node name="Sodium" parent="Plants" instance=ExtResource("4_hqns4")]
+position = Vector2(228, 43)
+collision_mask = 2
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="Oxy_bullet" parent="Bullets" instance=ExtResource("5_kdubu")]
+position = Vector2(341, 205)
+
+[node name="Plant_Base_stat" type="Node2D" parent="."]
+script = ExtResource("10_ir8iy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Plant_Base_stat"]
+
+[node name="HitArea" type="Area2D" parent="Plant_Base_stat"]
+position = Vector2(5, 4)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plant_Base_stat/HitArea"]
+position = Vector2(-3, 6)
+shape = SubResource("CircleShape2D_rjqkl")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(716, 196)
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("7_d21ai")
+speed = 60.0
+
+[node name="SpriteAttack" type="AnimatedSprite2D" parent="Enemy"]
+visible = false
+scale = Vector2(0.8, 0.703)
+sprite_frames = SubResource("SpriteFrames_kq1c5")
+animation = &"attack"
+frame_progress = 0.923752
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(6, 9)
+shape = SubResource("CircleShape2D_fs4d3")
+
+[node name="AttackArea" type="Area2D" parent="Enemy"]
+position = Vector2(2, 7)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/AttackArea"]
+position = Vector2(-31, 1.5)
+shape = SubResource("RectangleShape2D_7vxoj")
+
+[node name="SpriteMove" type="AnimatedSprite2D" parent="Enemy"]
+position = Vector2(7.00002, -12)
+scale = Vector2(0.403409, 0.537)
+sprite_frames = SubResource("SpriteFrames_rjqkl")
+animation = &"move"
+frame_progress = 0.115354
+flip_h = true
+
+[node name="HUD" parent="." instance=ExtResource("20_fs4d3")]
+
+[node name="EnergyOrb" parent="." instance=ExtResource("21_7vxoj")]
+position = Vector2(419, 116)

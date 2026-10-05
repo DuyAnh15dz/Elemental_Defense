@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl0ffq5fr1uqs"]
+
+[ext_resource type="Script" uid="uid://dta2h60he413a" path="res://hydrogen.gd" id="1_fd8p4"]
+[ext_resource type="Texture2D" uid="uid://ct7qjdkjljpe1" path="res://elemental/hydro.png" id="2_fd8p4"]
+[ext_resource type="PackedScene" uid="uid://bha4b6fc4uklx" path="res://energy_orb.tscn" id="2_o0urj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yk1m6"]
+radius = 40.0
+
+[node name="Hydro" type="Node2D"]
+script = ExtResource("1_fd8p4")
+energy_orb_scene = ExtResource("2_o0urj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.332031, 0.359375)
+texture = ExtResource("2_fd8p4")
+
+[node name="HitArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_yk1m6")

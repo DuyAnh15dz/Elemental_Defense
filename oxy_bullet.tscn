@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjy1ngng2owh2"]
+
+[ext_resource type="Script" uid="uid://cchrhlx5jstr6" path="res://oxy_bullet.gd" id="1_vlypb"]
+[ext_resource type="Texture2D" uid="uid://b88suxcupclwa" path="res://elemental/oxy-bullet-1.png" id="2_oiitf"]
+[ext_resource type="Texture2D" uid="uid://bx7qw8i71ycoo" path="res://elemental/oxy-bullet-2.png" id="3_sgcfp"]
+[ext_resource type="Texture2D" uid="uid://y8p6oqjvaprx" path="res://elemental/oxy-bullet-3.png" id="4_neuh8"]
+[ext_resource type="Texture2D" uid="uid://dia7ccphumjh4" path="res://elemental/oxy-bullet-splash.png" id="5_51a06"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_flf07"]
+radius = 20.0
+
+[node name="Oxy_bullet" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_vlypb")
+bounce_frames = Array[Texture2D]([ExtResource("2_oiitf"), ExtResource("3_sgcfp"), ExtResource("4_neuh8")])
+pop_frame = ExtResource("5_51a06")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_oiitf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_flf07")

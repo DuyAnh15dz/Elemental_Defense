@@ -1,0 +1,31 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Elemental_defense"
+run/main_scene="uid://kakaom8jxsy7"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*res://game_state.gd"
+
+[layer_names]
+
+2d_render/layer_1="plants"
+2d_render/layer_2="enemies"
+2d_render/layer_3="bullets"
+2d_render/layer_4="walls"
+2d_physics/layer_1="plant"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="bullet"
+2d_physics/layer_4="wall"

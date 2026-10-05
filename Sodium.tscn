@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cauw851co85ya"]
+
+[ext_resource type="Texture2D" uid="uid://dntkulq4oyxkp" path="res://elemental/Sodium.png" id="2_2pkak"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yk1m6"]
+radius = 40.0
+
+[node name="Natri" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, -3)
+scale = Vector2(0.085327, 0.0878502)
+texture = ExtResource("2_2pkak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yk1m6")

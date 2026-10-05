@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://byd5n3h4h1ykd"]
+
+[ext_resource type="Script" uid="uid://yyubd6l6l4pl" path="res://UI/hud.gd" id="1_bytes"]
+[ext_resource type="Texture2D" uid="uid://cb7mrgcnop4ax" path="res://elemental/energy.png" id="1_ne75i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bytes"]
+bg_color = Color(0, 0, 0, 0.6)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.5, 0.8, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_bytes")
+
+[node name="EnergyPanel" type="PanelContainer" parent="."]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 181.0
+offset_bottom = 61.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_bytes")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EnergyPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="EnergyPanel/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_ne75i")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EnergyLabel" type="Label" parent="EnergyPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+vertical_alignment = 1
