@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://kakaom8jxsy7"]
+[gd_scene load_steps=19 format=4 uid="uid://kakaom8jxsy7"]
 
 [ext_resource type="PackedScene" uid="uid://b7l80uiak1xxr" path="res://Oxy.tscn" id="1_wtcfe"]
 [ext_resource type="PackedScene" uid="uid://bl0ffq5fr1uqs" path="res://Hydro.tscn" id="2_4d7sh"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cjy1ngng2owh2" path="res://oxy_bullet.tscn" id="5_kdubu"]
 [ext_resource type="Script" uid="uid://coiasbcf1ljj5" path="res://plant_base_stat.gd" id="10_ir8iy"]
 [ext_resource type="Script" uid="uid://dkbl2jc3khpu8" path="res://enemy_spawner.gd" id="14_nr8wp"]
+[ext_resource type="Script" uid="uid://c0o7ir87sxu05" path="res://UI/compound_journal.gd" id="15_d2bti"]
 [ext_resource type="PackedScene" uid="uid://byd5n3h4h1ykd" path="res://UI/hud.tscn" id="20_fs4d3"]
 [ext_resource type="PackedScene" uid="uid://dvdiddsv1w0uu" path="res://UI/energy_orb.tscn" id="21_7vxoj"]
 [ext_resource type="Texture2D" uid="uid://b3k7bmjblt0to" path="res://elemental/bg.png" id="23_e8dv2"]
@@ -86,7 +87,7 @@ expand_mode = 1
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
 position = Vector2(230, 200)
-tile_map_data = PackedByteArray("AAAAAP//AAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAABAAAAAAABAAMAAAAAAAAAAAACAAMAAAABAAAAAAADAAMAAAAAAAAAAAAEAAMAAAABAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAABAAAAAAAHAAMAAAAAAAAAAAAHAAIAAAABAAAAAAAHAAEAAAAAAAAAAAAHAAAAAAABAAAAAAAHAP//AAAAAAAAAAAGAP//AAABAAAAAAAFAP//AAAAAAAAAAAEAP//AAABAAAAAAADAP//AAAAAAAAAAACAP//AAABAAAAAAABAP//AAAAAAAAAAABAAAAAAABAAAAAAABAAEAAAAAAAAAAAABAAIAAAABAAAAAAACAAIAAAAAAAAAAAACAAEAAAABAAAAAAACAAAAAAAAAAAAAAADAAAAAAABAAAAAAADAAEAAAAAAAAAAAADAAIAAAABAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAABAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAABAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAABAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAABAAAAAAAGAAAAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAABAAAAAAABAAMAAAAAAAAAAAACAAMAAAABAAAAAAADAAMAAAAAAAAAAAAEAAMAAAABAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAABAAAAAAAHAAMAAAAAAAAAAAAHAAIAAAABAAAAAAAHAAEAAAAAAAAAAAAHAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAEAAAAAAAAAAAABAAIAAAABAAAAAAACAAIAAAAAAAAAAAACAAEAAAABAAAAAAACAAAAAAAAAAAAAAADAAAAAAABAAAAAAADAAEAAAAAAAAAAAADAAIAAAABAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAABAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAABAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAABAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAABAAAAAAAGAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAACAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAABAAQAAAABAAAAAAADAAQAAAABAAAAAAAFAAQAAAABAAAAAAAHAAQAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_gt76g")
 script = ExtResource("25_bjha6")
 
@@ -95,3 +96,6 @@ script = ExtResource("26_gt76g")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("14_nr8wp")
+
+[node name="CompoundJounal" type="CanvasLayer" parent="."]
+script = ExtResource("15_d2bti")

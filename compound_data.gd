@@ -47,9 +47,9 @@ const RECIPES := {
 		"cost": 20,
 		"conditions": {"catalyst": "none", "temperature": "room", "pressure": "normal"},
 		"stable": true, "hp": 80, "color": Color(0.45, 0.8, 1.0),
-		"behavior": {"type": "energy", "interval": 7.0, "amount": 15},
-		"stats": [["Máu", "80"], ["Năng lượng mỗi orb", "+15"], ["Chu kỳ", "7 giây"]],
-		"mechanic": "Nhà máy năng lượng: cứ 7 giây tạo orb +15 (hai cây Hydro riêng lẻ chỉ cho +10).",
+		"behavior": {"type": "energy", "interval": 7.0, "amount": 50},
+		"stats": [["Máu", "80"], ["Năng lượng mỗi orb", "+50"], ["Chu kỳ", "7 giây"]],
+		"mechanic": "Nhà máy năng lượng: cứ 7 giây tạo orb +50 (hai cây Hydro riêng lẻ chỉ cho +25).",
 		"properties": [
 			"Phân tử gồm hai nguyên tử H liên kết cộng hoá trị",
 			"Khí nhẹ nhất, không màu, không mùi",

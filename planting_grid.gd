@@ -64,6 +64,31 @@ func _ready() -> void:
 		plants_container = get_node_or_null("../Plants") as Node2D
 	if plants_container == null:
 		push_error("PlantingGrid: không tìm thấy node Plants! Hãy gán 'Plants Container' trong Inspector.")
+	# Thêm tạm vào _ready() của planting_grid.gd
+	# DEBUG CHI TIẾT
+	print("=== GRID DEBUG ===")
+	print("grid_size = ", grid_size)
+	print("auto_fill_tiles = ", auto_fill_tiles)
+	print("tile_set = ", tile_set)
+	if tile_set:
+		print("source_count = ", tile_set.get_source_count())
+	
+	var cells := get_used_cells()
+	print("Total cells: ", cells.size())
+	
+	var rows_dict := {}
+	for cell in cells:
+		rows_dict[cell.y] = rows_dict.get(cell.y, 0) + 1
+	print("Cells per row:")
+	for r in rows_dict:
+		print("  Row ", r, ": ", rows_dict[r], " cells")
+	
+	var cols_dict := {}
+	for cell in cells:
+		cols_dict[cell.x] = cols_dict.get(cell.x, 0) + 1
+	print("Cells per column:")
+	for c in cols_dict:
+		print("  Col ", c, ": ", cols_dict[c], " cells")
 
 	_fill_tiles()
 	_load_plants()

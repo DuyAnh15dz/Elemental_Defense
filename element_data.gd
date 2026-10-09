@@ -39,7 +39,7 @@ const ENTRIES := {
 		"mass": "1,008",
 		"icon": "res://elemental/hydro.png", "scene": "res://Hydro.tscn",
 		"cost": 25, "cooldown": 3.0,
-		"stats": [["Máu", "40"], ["Chu kỳ tạo orb", "7 giây"], ["Năng lượng mỗi orb", "+5"]],
+		"stats": [["Máu", "40"], ["Chu kỳ tạo orb", "7 giây"], ["Năng lượng mỗi orb", "+25"]],
 		"passive_name": "Nhiên liệu của các vì sao",
 		"passive": "Cứ 7 giây tạo ra một orb năng lượng +5 phía trên cây. Bấm vào orb để thu thập trước khi nó biến mất.",
 		"reactions": ["H + H → H₂ (cây phân tử, dự kiến)", "H₂ + O → H₂O (cây nước, dự kiến)", "C + 4H → CH₄ (khí metan, dự kiến)"],
