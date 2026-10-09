@@ -5,7 +5,7 @@ signal enemy_died
 enum State { MOVING, ATTACKING, DYING }
 var current_state: State = State.MOVING
 
-@export var max_hp: int = 100
+@export var max_hp: int = 120
 @export var speed: float = 40.0
 @export var damage: int = 10
 @export var attack_interval: float = 1.0
@@ -53,11 +53,6 @@ func _physics_process(delta: float) -> void:
 	# DEBUG: kiểm tra overlap mỗi frame
 	if current_state == State.MOVING:
 		var bodies = attack_area.get_overlapping_bodies()
-		if bodies.size() > 0:
-			print("[Slime] Overlap bodies: ", bodies)
-		var areas = attack_area.get_overlapping_areas()
-		if areas.size() > 0:
-			print("[Slime] Overlap areas: ", areas)
 	
 	match current_state:
 		State.MOVING: _state_moving(delta)
@@ -122,24 +117,12 @@ func _flash_white() -> void:
 	tween.tween_property(sprite_attack, "modulate", Color.WHITE, 0.1)
 
 func _on_attack_area_body_entered(body: Node) -> void:
-	print("[Slime] AttackArea chạm: ", body.name, " | in_group plants? ", body.is_in_group("plants"))
-	
-	if current_state != State.MOVING:
-		print("  → Bỏ qua: state = ", current_state)
-		return
-	if not body.is_in_group("plants"):
-		print("  → Bỏ qua: không phải plants")
-		return
-	
-	print("  → TẤN CÔNG!")
 	current_target = body
 	current_state = State.ATTACKING
 	attack_timer = attack_interval
 	_show_only("attack")
 
-func _on_attack_area_area_entered(area: Area2D) -> void:
-	print("[Slime] AttackArea chạm AREA: ", area.name)
-	
+func _on_attack_area_area_entered(area: Area2D) -> void:	
 	if current_state != State.MOVING:
 		return
 	
@@ -154,7 +137,6 @@ func _on_attack_area_area_entered(area: Area2D) -> void:
 		else:
 			return
 	
-	print("  → TẤN CÔNG cây: ", plant.name)
 	current_target = plant
 	current_state = State.ATTACKING
 	attack_timer = attack_interval

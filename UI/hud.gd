@@ -1,8 +1,10 @@
 extends CanvasLayer
 
 @onready var energy_label: Label = $EnergyPanel/HBoxContainer/EnergyLabel
+@onready var energy_icon: TextureRect = $EnergyPanel/HBoxContainer/Icon
 
 func _ready() -> void:
+	add_to_group("hud")
 	GameState.chemical_energy_changed.connect(_on_energy_changed)
 	_update_display(GameState.chemical_energy)
 
@@ -16,3 +18,8 @@ func _update_display(value: int) -> void:
 	var tween = create_tween()
 	energy_label.scale = Vector2(1.3, 1.3)
 	tween.tween_property(energy_label, "scale", Vector2(1.0, 1.0), 0.2)
+
+
+# Tâm của icon năng lượng theo toạ độ màn hình (orb bay tới đây)
+func get_energy_icon_screen_pos() -> Vector2:
+	return energy_icon.get_global_rect().get_center()

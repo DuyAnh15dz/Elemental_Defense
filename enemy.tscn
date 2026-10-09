@@ -1,0 +1,115 @@
+[gd_scene load_steps=18 format=3 uid="uid://dqruefn037mts"]
+
+[ext_resource type="Script" uid="uid://cvpg7ve2mok4l" path="res://enemy.gd" id="1_ar8e5"]
+[ext_resource type="Texture2D" uid="uid://dl4ut1s48fu23" path="res://elemental/slime_attack_1.png" id="2_doop2"]
+[ext_resource type="Texture2D" uid="uid://bbxa02late8t" path="res://elemental/slime_attack_2.png" id="3_5hcft"]
+[ext_resource type="Texture2D" uid="uid://dxqhm815nispg" path="res://elemental/slime_attack_3.png" id="4_nnovl"]
+[ext_resource type="Texture2D" uid="uid://d112e4rlkmv2x" path="res://elemental/slime_attack_4.png" id="5_jmwgi"]
+[ext_resource type="Texture2D" uid="uid://crkjog0mjliaq" path="res://elemental/slime_attack_5.png" id="6_g2u8i"]
+[ext_resource type="Texture2D" uid="uid://dl6a4wogvkkgs" path="res://elemental/slime_death_1.png" id="7_otto8"]
+[ext_resource type="Texture2D" uid="uid://crf3qgsbu75a2" path="res://elemental/slime_death_2.png" id="8_8q82m"]
+[ext_resource type="Texture2D" uid="uid://ooujp4kv3dgf" path="res://elemental/slime_death_3.png" id="9_epc7x"]
+[ext_resource type="Texture2D" uid="uid://ornngtviobd8" path="res://elemental/slime_death_4.png" id="10_o7rgc"]
+[ext_resource type="Texture2D" uid="uid://dy8e4psirqbjy" path="res://elemental/slime_death_5.png" id="11_kdav3"]
+[ext_resource type="Texture2D" uid="uid://br81hu1cgc8fq" path="res://elemental/slime_mobi_1.png" id="12_jpbtr"]
+[ext_resource type="Texture2D" uid="uid://bvfhrqylavyaq" path="res://elemental/slime_mobi_2.png" id="13_qgdfx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kq1c5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_doop2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5hcft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nnovl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jmwgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g2u8i")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_otto8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8q82m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_epc7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_o7rgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kdav3")
+}],
+"loop": false,
+"name": &"death",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fs4d3"]
+radius = 33.1361
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vxoj"]
+size = Vector2(47, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjqkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_jpbtr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qgdfx")
+}],
+"loop": true,
+"name": &"move",
+"speed": 2.0
+}]
+
+[node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(0.936323, 1.03914)
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_ar8e5")
+speed = 60.0
+
+[node name="SpriteAttack" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.8, 0.703)
+sprite_frames = SubResource("SpriteFrames_kq1c5")
+animation = &"attack"
+frame_progress = 0.923752
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(6, 9)
+shape = SubResource("CircleShape2D_fs4d3")
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(2, 7)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-31, 1.5)
+shape = SubResource("RectangleShape2D_7vxoj")
+
+[node name="SpriteMove" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.34006, -14.435)
+scale = Vector2(0.403409, 0.537)
+sprite_frames = SubResource("SpriteFrames_rjqkl")
+animation = &"move"
+frame_progress = 0.115354
+flip_h = true

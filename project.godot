@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GameState="*res://game_state.gd"
 
+[display]
+
+window/size/viewport_height=860
+window/stretch/mode="canvas_items"
+
 [layer_names]
 
 2d_render/layer_1="plants"
@@ -29,3 +34,4 @@ GameState="*res://game_state.gd"
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="bullet"
 2d_physics/layer_4="wall"
+2d_physics/layer_5="orb"

@@ -1,23 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://bha4b6fc4uklx"]
+[gd_scene load_steps=4 format=3 uid="uid://dvdiddsv1w0uu"]
 
-[ext_resource type="Script" uid="uid://dnke5k1lsovom" path="res://energy_orb.gd" id="1_8wl1t"]
-[ext_resource type="Texture2D" uid="uid://cb7mrgcnop4ax" path="res://elemental/energy.png" id="2_0u3au"]
+[ext_resource type="Texture2D" uid="uid://cb7mrgcnop4ax" path="res://elemental/energy.png" id="1_4mljg"]
+[ext_resource type="Script" uid="uid://bjqbdudhp413m" path="res://UI/energy_orb.gd" id="1_5qpu7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ei405"]
 radius = 667.499
 
 [node name="EnergyOrb" type="Area2D"]
 scale = Vector2(0.06, 0.06)
-collision_layer = 0
+collision_layer = 16
 collision_mask = 0
 monitoring = false
-script = ExtResource("1_8wl1t")
+script = ExtResource("1_5qpu7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 100
 position = Vector2(6.10352e-05, 16.6668)
 scale = Vector2(0.986938, 1.02631)
-texture = ExtResource("2_0u3au")
+texture = ExtResource("1_4mljg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ei405")

@@ -26,5 +26,5 @@ shape = SubResource("CircleShape2D_yk1m6")
 
 [node name="EnemyDetector" type="RayCast2D" parent="."]
 position = Vector2(-4, 1)
-target_position = Vector2(800, 0)
+target_position = Vector2(600, 0)
 collision_mask = 2
