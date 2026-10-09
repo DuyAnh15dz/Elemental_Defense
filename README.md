@@ -1,6 +1,6 @@
 # Elemental Defense
 
-Game tower defense với các nguyên tố (lửa, nước, đất, gió...).
+Game tower defense với các nguyên tố hóa học trong bảng tuần hoàn nguyên tố, enemy là nguyên tố phóng xạ và kim loại nặng độc hại.
 
 ## Yêu cầu
 - Godot Engine 4.x
