@@ -22,7 +22,7 @@ extends RefCounted
 static var current_level: int = 1
 
 const LEVELS := {
-	1: {"name": "Màn 1", "enemies": {"Hg": 6},
+	1: {"name": "Màn 1", "enemies": {"Hg": 6, "Pu": 1},
 		"waves": 2, "duration": 40.0, "start_delay": 12.0, "rows": [1, 2, 3]},
 	2: {"name": "Màn 2", "enemies": {"Hg": 10},
 		"waves": 3, "duration": 60.0, "start_delay": 12.0, "rows": [1, 2, 3]},

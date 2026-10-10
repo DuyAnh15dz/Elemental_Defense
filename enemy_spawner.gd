@@ -176,6 +176,11 @@ func _spawn(id: String, row: int) -> void:
 		e.modulate = def["tint"]
 	var vs := float(def.get("visual_scale", 1.0))
 	if vs != 1.0:
+		var hb := e.get_node_or_null("HealthBar") as HealthBar
+		if hb:
+			hb.offset.y *= vs
+			hb.bar_size.x *= vs
+			
 		for n in ["SpriteMove", "SpriteAttack"]:
 			var s := e.get_node_or_null(n) as Node2D
 			if s:

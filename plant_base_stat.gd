@@ -12,7 +12,6 @@ var _is_dead: bool = false
 
 func _ready() -> void:
 	current_health = max_health
-	
 	# ⚠️ QUAN TRỌNG: add_to_group ở ĐẦU, trước mọi thứ có thể crash
 	if not is_in_group("plants"):
 		add_to_group("plants")
@@ -21,6 +20,8 @@ func _ready() -> void:
 	# Kết nối HitArea nếu có (dùng null check, không crash)
 	if hit_area:
 		hit_area.body_entered.connect(_on_body_entered)
+	add_child(HealthBar.new())
+
 
 
 func _on_body_entered(_body: Node) -> void:

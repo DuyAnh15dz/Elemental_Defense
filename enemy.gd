@@ -34,9 +34,16 @@ func _ready() -> void:
 	attack_area.body_exited.connect(_on_attack_area_body_exited)
 	attack_area.area_entered.connect(_on_attack_area_area_entered)   # ← THÊM
 	attack_area.area_exited.connect(_on_attack_area_area_exited)     # ← THÊM
-	
 	sprite_attack.animation_finished.connect(_on_animation_finished)
-
+	# Thanh máu
+	var bar := HealthBar.new()
+	bar.name = "HealthBar"
+	bar.health_prop = "hp"
+	bar.max_prop = "max_hp"
+	bar.offset = Vector2(0, -50)   # chỉnh theo chiều cao sprite quái
+	add_child(bar)
+	
+	
 # ─── HELPER: ẩn/hiện đúng sprite ───
 func _show_only(anim_name: String) -> void:
 	if anim_name == "move":
